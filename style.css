@@ -1,4 +1,4 @@
-/* Basic Reset */
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,89 +6,161 @@
   font-family: 'Arial', sans-serif;
 }
 
-/* Body Background */
+/* ================= BODY ================= */
 body {
-  background: linear-gradient(to bottom right, #f3eaff, #ffffff); /* light violet to white */
+  background: linear-gradient(to bottom right, #f3eaff, #ffffff);
   color: #52b2f3;
   text-align: center;
-  padding: 20px;
 }
 
-/* Header */
-header {
-  margin-bottom: 40px;
-}
-header h1 {
-  font-size: 2.5em;
-  color: #9b59b6; /* violet */
-}
-header p {
-  font-size: 1.2em;
-  color: #52b2f3; /* slightly darker violet */
-}
-
-/* Timeline (Horizontal Swipe) */
-.timeline {
+/* ================= LOADING SCREEN ================= */
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to bottom right, #f3eaff, #ffffff);
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 20px 10px;
-  scroll-behavior: smooth;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
 }
 
-/* Hide scrollbar (optional, looks cleaner) */
-.timeline::-webkit-scrollbar {
-  display: none;
-}
-.timeline {
-  -ms-overflow-style: none;  /* IE & Edge */
-  scrollbar-width: none;     /* Firefox */
+.loader-box {
+  text-align: center;
 }
 
-/* Month cards stay fixed size */
-.month {
-  flex: 0 0 auto;
-  background: #ffffff;
+.loader-box img {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 10px;
+}
+
+.loader-box p {
+  color: #9b59b6;
+  font-size: 16px;
+}
+
+/* ================= LOGIN SCREEN ================= */
+#login-screen {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(135deg, #f3eaff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+.login-box {
+  background: white;
+  padding: 25px;
   border-radius: 20px;
-  padding: 20px;
-  width: 200px;
-  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
-  transition: transform 0.3s;
+  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
+  width: 280px;
 }
 
-.month {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
+.login-box h2 {
+  color: #9b59b6;
+  margin-bottom: 10px;
 }
 
-.month h3 {
-  font-size: 1.3em;
-  color: #52b2f3;
-  font-weight: bold;
-}
-
-.month {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.month:hover h3 {
+.login-box p {
+  font-size: 14px;
+  margin-bottom: 15px;
   color: #4b0082;
 }
 
-/* Timeline Wrapper */
+.login-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d8bfff;
+  margin-bottom: 10px;
+  outline: none;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #d8bfff;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.login-box button:hover {
+  background: #c796ff;
+}
+
+#error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* ================= MAIN CONTENT ================= */
+#main-content {
+  display: none;
+}
+
+/* ================= HEADER ================= */
+header {
+  margin: 30px 0;
+}
+
+header h1 {
+  font-size: 2.2em;
+  color: #9b59b6;
+}
+
+header p {
+  color: #52b2f3;
+}
+
+/* ================= TIMELINE ================= */
 .timeline-wrapper {
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.timeline {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-behavior: smooth;
+}
+
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+
+/* Month cards */
+.month {
+  flex: 0 0 auto;
+  width: 200px;
+  height: 100px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
+  transition: 0.3s;
+}
+
+.month:hover {
+  transform: scale(1.05);
+}
+
+.month h3 {
+  color: #52b2f3;
 }
 
 /* Scroll Buttons */
@@ -96,90 +168,69 @@ header p {
   background: #9b59b6;
   color: white;
   border: none;
-  font-size: 20px;
-  padding: 10px 14px;
+  font-size: 18px;
+  padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 5px 10px rgba(155, 89, 182, 0.4);
-  transition: 0.3s;
 }
 
-.scroll-btn:hover {
-  transform: scale(1.15);
-  background: #6a0dad;
-}
-
-/* Button Positions */
-.scroll-btn.left {
-  margin-right: 30px;
-}
-
-.scroll-btn.right {
-  margin-left: 30px;
-}
-
-/* Love Quiz Section */
+/* ================= LOVE QUIZ ================= */
 .love-quiz {
-  margin-bottom: 50px;
+  margin: 40px 0;
 }
+
 .love-quiz h2 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #9b59b6; /* violet */
+  color: #9b59b6;
 }
+
 button {
-  border: none;
-  border-radius: 12px;
   padding: 10px 20px;
   margin: 10px;
-  background: #d8bfff; /* light violet */
-  color: #ffffff;
-  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  background: #d8bfff;
+  color: white;
   cursor: pointer;
   transition: 0.3s;
-  position: relative;
-  box-shadow: 0 5px 10px rgba(155, 89, 182, 0.3);
 }
+
 button:hover {
   transform: scale(1.1);
-  background: #c796ff; /* slightly darker violet on hover */
 }
 
-/* Footer */
-footer p {
-  font-size: 1.2em;
-  margin-top: 40px;
-  color: #9b59b6; /* violet */
-}
-
-/* Confetti Styles */
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  top: 0;
-  border-radius: 50%;
-  animation: fall 2s linear forwards;
-}
-@keyframes fall {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(100vh) rotate(360deg); }
-}
-
+/* ================= COUNTDOWN ================= */
 .countdown {
   margin: 40px auto;
-  background: #ffffff;
-  border-radius: 20px;
+  background: white;
+  width: 300px;
   padding: 20px;
-  width: 320px;
+  border-radius: 20px;
   box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
 }
+
 .countdown h2 {
   color: #9b59b6;
-  margin-bottom: 20px;
 }
-.countdown p {
-  font-size: 1.2em;
-  margin: 10px 0;
-  color: #4b0082;
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 40px;
+  color: #9b59b6;
+  font-size: 1.1em;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .month {
+    width: 150px;
+    height: 80px;
+  }
+
+  .login-box {
+    width: 90%;
+  }
+
+  .countdown {
+    width: 90%;
+  }
 }

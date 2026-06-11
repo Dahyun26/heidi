@@ -8,58 +8,95 @@
 </head>
 <body>
 
-  <!-- Header -->
+<!-- 🔐 LOGIN SCREEN -->
+<div id="login-screen">
+  <div class="login-box">
+    <h2>💜 For Heidi 💜</h2>
+    <p>Enter password to continue</p>
+
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Enter 💕</button>
+
+    <p id="error"></p>
+  </div>
+</div>
+
+<!-- 💜 LOADING SCREEN -->
+<div id="loading-screen" style="display:none;">
+  <div class="loader-box">
+    <img src="loadingscreen.gif" alt="loading">
+    <p>Loading our memories... 💜</p>
+  </div>
+</div>
+
+<!-- 🌸 MAIN CONTENT -->
+<div id="main-content" style="display:none;">
+
   <header>
     <h1>Our Story 💜</h1>
     <p>month by month</p>
   </header>
 
-  <!-- Timeline Section -->
   <section class="timeline-wrapper">
     <button class="scroll-btn left" id="scrollLeft">◀</button>
 
     <div class="timeline">
-      <a href="march.html" class="month">
-        <h3>March</h3>
-      </a>
-
-      <a href="april.html" class="month">
-        <h3>April</h3>
-      </a>
-
-      <a href="may.html" class="month">
-        <h3>May</h3>
-      </a>
+      <a href="march.html" class="month"><h3>March</h3></a>
+      <a href="april.html" class="month"><h3>April</h3></a>
+      <a href="may.html" class="month"><h3>May</h3></a>
     </div>
 
     <button class="scroll-btn right" id="scrollRight">▶</button>
   </section>
 
-  <!-- Interactive Section -->
   <section class="love-quiz">
     <h2>Do you love me?</h2>
     <button id="yes">Yes ❤️</button>
     <button id="no">No 💔</button>
   </section>
 
-<!-- Countdown Section -->
-<section class="countdown">
-  <h2>Countdown to Our Special Day 💖</h2>
-
-  <div>
+  <section class="countdown">
+    <h2>Countdown to Our Special Day 💖</h2>
     <p>
-      Next Meet-sary
-      (<span id="meetsary-number"></span>):
+      Next Meet-sary:
+      <span id="meetsary-number"></span>
+      <br>
       <span id="meetsary-timer"></span>
     </p>
-  </div>
-</section>
+  </section>
 
-  <!-- Footer -->
   <footer>
-    <p>Ali 💕, Love💜, Mahal🤗</p>
+    <p>Ali 💕, Love 💜, Mahal 🤗</p>
   </footer>
 
-  <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
+
+<!-- 🔐 LOGIN + LOADING LOGIC -->
+<script>
+function checkPassword() {
+  const pass = document.getElementById("password").value;
+
+  if (pass === "heiro@0726") {
+
+    // hide login
+    document.getElementById("login-screen").style.display = "none";
+
+    // show loading
+    document.getElementById("loading-screen").style.display = "flex";
+
+    // after delay show main content
+    setTimeout(() => {
+      document.getElementById("loading-screen").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+    }, 2500);
+
+  } else {
+    document.getElementById("error").innerText = "Wrong password 💔 Try again";
+  }
+}
+</script>
+
 </body>
 </html>
