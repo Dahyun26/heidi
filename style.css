@@ -1,0 +1,185 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body Background */
+body {
+  background: linear-gradient(to bottom right, #f3eaff, #ffffff); /* light violet to white */
+  color: #52b2f3;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 2.5em;
+  color: #9b59b6; /* violet */
+}
+header p {
+  font-size: 1.2em;
+  color: #52b2f3; /* slightly darker violet */
+}
+
+/* Timeline (Horizontal Swipe) */
+.timeline {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 10px;
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar (optional, looks cleaner) */
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+.timeline {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Month cards stay fixed size */
+.month {
+  flex: 0 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 200px;
+  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
+  transition: transform 0.3s;
+}
+
+.month {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+}
+
+.month h3 {
+  font-size: 1.3em;
+  color: #52b2f3;
+  font-weight: bold;
+}
+
+.month {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.month:hover h3 {
+  color: #4b0082;
+}
+
+/* Timeline Wrapper */
+.timeline-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+  background: #9b59b6;
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(155, 89, 182, 0.4);
+  transition: 0.3s;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.15);
+  background: #6a0dad;
+}
+
+/* Button Positions */
+.scroll-btn.left {
+  margin-right: 30px;
+}
+
+.scroll-btn.right {
+  margin-left: 30px;
+}
+
+/* Love Quiz Section */
+.love-quiz {
+  margin-bottom: 50px;
+}
+.love-quiz h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #9b59b6; /* violet */
+}
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  margin: 10px;
+  background: #d8bfff; /* light violet */
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+  box-shadow: 0 5px 10px rgba(155, 89, 182, 0.3);
+}
+button:hover {
+  transform: scale(1.1);
+  background: #c796ff; /* slightly darker violet on hover */
+}
+
+/* Footer */
+footer p {
+  font-size: 1.2em;
+  margin-top: 40px;
+  color: #9b59b6; /* violet */
+}
+
+/* Confetti Styles */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: 0;
+  border-radius: 50%;
+  animation: fall 2s linear forwards;
+}
+@keyframes fall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
+
+.countdown {
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
+}
+.countdown h2 {
+  color: #9b59b6;
+  margin-bottom: 20px;
+}
+.countdown p {
+  font-size: 1.2em;
+  margin: 10px 0;
+  color: #4b0082;
+}
