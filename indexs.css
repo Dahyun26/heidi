@@ -1,103 +1,287 @@
-/* Base */
-body {
-  margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: #fff;
+/* ==========================================
+   ROMANTIC COUPLE MEMORY PAGE 💖
+========================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* =====================
+   BODY
+===================== */
+body{
+    margin:0;
+    padding:0;
+    font-family:"Poppins",sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
+
+    background:linear-gradient(
+        to bottom,
+        #fdeff5,
+        #fae6ef,
+        #f8dfea
+    );
 }
 
-/* Header */
-header h1 {
-  margin: 20px;
-  color: #4b0082;
-  text-align: center;
-  font-size: 22px;
+/* Soft Blurry Heart Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-1;
+
+    background:
+    radial-gradient(circle at 15% 15%, rgba(255,182,193,.45) 0 55px, transparent 80px),
+    radial-gradient(circle at 80% 18%, rgba(255,182,193,.35) 0 35px, transparent 55px),
+    radial-gradient(circle at 10% 55%, rgba(255,182,193,.35) 0 45px, transparent 70px),
+    radial-gradient(circle at 85% 70%, rgba(255,182,193,.4) 0 60px, transparent 90px),
+    radial-gradient(circle at 30% 90%, rgba(255,182,193,.45) 0 80px, transparent 110px),
+    radial-gradient(circle at 60% 45%, rgba(255,182,193,.25) 0 40px, transparent 60px);
+
+    filter:blur(18px);
 }
 
-/* Timeline Container */
-.index-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  padding: 15px;
+/* Floating Hearts */
+body::after{
+    content:"💕";
+    position:fixed;
+    bottom:-50px;
+    left:10%;
+    font-size:25px;
+    opacity:.5;
+    animation:floatHeart 12s linear infinite;
+    pointer-events:none;
 }
 
-/* Memory Card (mobile-first) */
-.memory {
-  display: flex;
-  flex-direction: column; /* stacked on phone */
-  gap: 10px;
+@keyframes floatHeart{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
 }
 
-/* Image Container */
-.media {
-  width: 100%;
-  max-width: 350px;
-  aspect-ratio: 1 / 1;
-  margin: 0 auto;
+/* =====================
+   HEADER
+===================== */
+header{
+    text-align:center;
+    padding:50px 20px 25px;
 }
 
-/* Image Styling */
-.media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  display: block;
+header h1{
+    font-family:"Parisienne",cursive;
+    font-size:5rem;
+    color:#d63384;
+    margin:0;
+
+    text-shadow:
+    0 0 10px rgba(255,105,180,.4),
+    0 0 25px rgba(255,105,180,.2);
 }
 
-.media video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  display: block;
+/* =====================
+   TIMELINE
+===================== */
+.index-timeline{
+    max-width:1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:40px;
 }
 
-/* Text Box */
-.memory p {
-  background: #f3eaff;
-  padding: 15px;
-  border-radius: 12px;
-  text-align: justify;
-  line-height: 1.5;
-  font-size: 14px;
-  color: #333;
+/* =====================
+   MEMORY CARD
+===================== */
+.memory{
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+    padding:25px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.55);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,.6);
+
+    box-shadow:
+    0 10px 30px rgba(255,182,193,.35);
+
+    transition:.4s ease;
 }
 
-/* Back Button */
-.back-btn {
-  display: inline-block;
-  margin: 20px;
-  padding: 10px 15px;
-  background-color: #f3eaff;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #6a1b9a;
-  font-weight: bold;
+.memory:hover{
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 15px 40px rgba(194,24,91,.2);
 }
 
-/* ===== Desktop / Tablet Layout ===== */
-@media (min-width: 768px) {
-  .memory {
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-  }
-
-  /* Alternate layout */
-  .memory:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .media {
-    width: 250px;
-    height: 250px;
-    max-width: none;
-    flex-shrink: 0;
-  }
-
-  .memory p {
-    flex: 1;
-    font-size: 16px;
-  }
+/* Alternate Layout */
+.memory:nth-child(even){
+    flex-direction:row-reverse;
 }
+
+/* =====================
+   MEDIA
+===================== */
+.media{
+    width:280px;
+    height:280px;
+    flex-shrink:0;
+}
+
+/* Images and Videos */
+.media img,
+.media video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+    border-radius:20px;
+
+    background:white;
+
+    padding:8px;
+
+    box-shadow:
+    0 12px 25px rgba(0,0,0,.15);
+
+    transition:.4s ease;
+}
+
+.media img:hover,
+.media video:hover{
+    transform:scale(1.05) rotate(-2deg);
+}
+
+/* =====================
+   MEMORY TEXT
+===================== */
+.memory p{
+    flex:1;
+
+    padding:25px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.7);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,192,203,.5);
+
+    box-shadow:
+    0 8px 20px rgba(255,182,193,.25);
+
+    text-align:justify;
+
+    line-height:2;
+
+    font-size:15px;
+
+    color:#7c3159;
+}
+
+.memory p::first-letter{
+    font-size:32px;
+    font-weight:bold;
+    color:#d63384;
+}
+
+/* =====================
+   BACK BUTTON
+===================== */
+.back-btn{
+    display:block;
+    width:fit-content;
+
+    margin:50px auto;
+
+    padding:16px 35px;
+
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        135deg,
+        #ff8cb8,
+        #d88cff
+    );
+
+    box-shadow:
+    0 10px 25px rgba(255,111,165,.35);
+
+    transition:.3s ease;
+}
+
+.back-btn:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+    0 15px 30px rgba(196,113,237,.4);
+}
+
+/* =====================
+   SCROLLBAR
+===================== */
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#ffe6f2;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#d16ba5;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#c2185b;
+}
+
+/* =====================
+   MOBILE
+===================== */
+@media (max-width:768px){
+
+    header h1{
+        font-size:3.5rem;
+    }
+
+    .memory{
+        flex-direction:column !important;
+        padding:18px;
+    }
+
+    .media{
+        width:100%;
+        max-width:350px;
+        height:auto;
+        aspect-ratio:1/1;
+    }
+
+    .memory p{
+        font-size:14px;
+        line-height:1.9;
+    }
+
+    .back-btn{
+        margin-bottom:30px;
+    }
+}
+

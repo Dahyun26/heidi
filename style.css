@@ -3,14 +3,34 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* ================= BODY ================= */
+/* ================= BODY (ROMANTIC BACKGROUND) ================= */
 body {
-  background: linear-gradient(to bottom right, #f3eaff, #ffffff);
-  color: #52b2f3;
+  background: radial-gradient(circle at top, #ffe6f0, #f3eaff, #ffffff);
+  color: #6a4c93;
   text-align: center;
+  overflow-x: hidden;
+}
+
+/* Floating soft hearts background effect */
+body::before {
+  content: "💖 💕 💗 💞 💓";
+  position: fixed;
+  font-size: 24px;
+  opacity: 0.08;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: floatHearts 20s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes floatHearts {
+  from { transform: translateY(0); }
+  to { transform: translateY(-200px); }
 }
 
 /* ================= LOADING SCREEN ================= */
@@ -18,26 +38,22 @@ body {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom right, #f3eaff, #ffffff);
+  background: linear-gradient(135deg, #ffe6f0, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
 }
 
-.loader-box {
-  text-align: center;
-}
-
 .loader-box img {
-  width: 120px;
-  height: 120px;
-  margin-bottom: 10px;
+  width: 110px;
+  height: 110px;
+  filter: drop-shadow(0 0 10px #ffb6c1);
 }
 
 .loader-box p {
-  color: #9b59b6;
-  font-size: 16px;
+  color: #b46fa3;
+  font-size: 15px;
 }
 
 /* ================= LOGIN SCREEN ================= */
@@ -45,7 +61,7 @@ body {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #f3eaff, #ffffff);
+  background: linear-gradient(135deg, #ffe6f0, #f3eaff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,52 +69,56 @@ body {
 }
 
 .login-box {
-  background: white;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
-  width: 280px;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(255, 182, 193, 0.4);
+  width: 300px;
+  border: 1px solid rgba(255,255,255,0.4);
 }
 
 .login-box h2 {
-  color: #9b59b6;
-  margin-bottom: 10px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 32px;
+  color: #d63384;
 }
 
 .login-box p {
-  font-size: 14px;
+  font-size: 13px;
+  color: #7b4b94;
   margin-bottom: 15px;
-  color: #4b0082;
 }
 
 .login-box input {
   width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #d8bfff;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #f3c6d6;
   margin-bottom: 10px;
   outline: none;
 }
 
 .login-box button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 10px;
-  background: #d8bfff;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff8fab, #b983ff);
   color: white;
+  font-weight: 500;
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.3s ease;
 }
 
 .login-box button:hover {
-  background: #c796ff;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
 }
 
 #error {
-  color: red;
+  color: #ff4d6d;
   font-size: 12px;
-  margin-top: 5px;
 }
 
 /* ================= MAIN CONTENT ================= */
@@ -108,16 +128,18 @@ body {
 
 /* ================= HEADER ================= */
 header {
-  margin: 30px 0;
+  margin: 40px 0;
 }
 
 header h1 {
-  font-size: 2.2em;
-  color: #9b59b6;
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #d63384;
+  text-shadow: 0 5px 20px rgba(255, 182, 193, 0.4);
 }
 
 header p {
-  color: #52b2f3;
+  color: #7b4b94;
 }
 
 /* ================= TIMELINE ================= */
@@ -140,38 +162,49 @@ header p {
   display: none;
 }
 
-/* Month cards */
+/* Romantic glass cards */
 .month {
   flex: 0 0 auto;
   width: 200px;
-  height: 100px;
-  background: white;
-  border-radius: 20px;
+  height: 110px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
   transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.4);
 }
 
 .month:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 105, 180, 0.3);
 }
 
 .month h3 {
-  color: #52b2f3;
+  font-family: 'Poppins', sans-serif;
+  color: #d63384;
 }
 
-/* Scroll Buttons */
-.scroll-btn {
-  background: #9b59b6;
-  color: white;
+/* ================= BUTTONS ================= */
+button {
+  padding: 12px 22px;
+  margin: 10px;
+  border-radius: 15px;
   border: none;
-  font-size: 18px;
-  padding: 10px;
-  border-radius: 50%;
+  background: linear-gradient(135deg, #ff8fab, #b983ff);
+  color: white;
   cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
 }
 
 /* ================= LOVE QUIZ ================= */
@@ -180,50 +213,39 @@ header p {
 }
 
 .love-quiz h2 {
-  color: #9b59b6;
-}
-
-button {
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 12px;
-  border: none;
-  background: #d8bfff;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.1);
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.5em;
+  color: #d63384;
 }
 
 /* ================= COUNTDOWN ================= */
 .countdown {
   margin: 40px auto;
-  background: white;
-  width: 300px;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 10px 20px rgba(155, 89, 182, 0.2);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  width: 320px;
+  padding: 25px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
 }
 
 .countdown h2 {
-  color: #9b59b6;
+  font-family: 'Great Vibes', cursive;
+  color: #d63384;
 }
 
 /* ================= FOOTER ================= */
 footer {
   margin-top: 40px;
-  color: #9b59b6;
-  font-size: 1.1em;
+  color: #b46fa3;
+  font-size: 1em;
 }
 
 /* ================= MOBILE RESPONSIVE ================= */
 @media (max-width: 768px) {
   .month {
     width: 150px;
-    height: 80px;
+    height: 85px;
   }
 
   .login-box {
