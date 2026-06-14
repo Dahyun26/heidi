@@ -71,23 +71,37 @@
 
 </div>
 
+<!-- Your main JS file -->
 <script src="script.js"></script>
 
 <!-- 🔐 LOGIN + LOADING LOGIC -->
 <script>
+window.onload = function () {
+
+  // If user already logged in before
+  if (localStorage.getItem("loggedIn") === "true") {
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("main-content").style.display = "block";
+  }
+
+};
+
 function checkPassword() {
   const pass = document.getElementById("password").value;
 
   if (pass === "heiro@0726") {
 
-    // hide login
+    // Save login status
+    localStorage.setItem("loggedIn", "true");
+
+    // Hide login
     document.getElementById("login-screen").style.display = "none";
 
-    // show loading
+    // Show loading
     document.getElementById("loading-screen").style.display = "flex";
 
-    // after delay show main content
-    setTimeout(() => {
+    // Show main content after 2.5 seconds
+    setTimeout(function () {
       document.getElementById("loading-screen").style.display = "none";
       document.getElementById("main-content").style.display = "block";
     }, 2500);
