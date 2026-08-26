@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Playlist ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="music.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="music-header">
+
+<a href="index.html" class="back-btn">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Home
+
+</a>
+
+<h1>
+
+🎵 Our Playlist
+
+</h1>
+
+<p>
+
+Every song reminds me of you ❤️
+
+</p>
+
+</header>
+
+<!-- ================= MUSIC PLAYER ================= -->
+
+<section class="music-container">
+
+<div class="player-card">
+
+<img
+id="cover"
+class="album-cover"
+src="images/default-cover.jpg"
+alt="Album Cover">
+
+<h2 id="title">
+
+Select a Song
+
+</h2>
+
+<h3 id="artist">
+
+Artist
+
+</h3>
+
+<audio id="audio"></audio>
+
+<div class="progress-container">
+
+<span id="current">
+
+0:00
+
+</span>
+
+<div class="progress">
+
+<div id="progressBar"></div>
+
+</div>
+
+<span id="duration">
+
+0:00
+
+</span>
+
+</div>
+
+<div class="controls">
+
+<button id="prev">
+
+<i class="fa-solid fa-backward"></i>
+
+</button>
+
+<button id="play">
+
+<i class="fa-solid fa-play"></i>
+
+</button>
+
+<button id="next">
+
+<i class="fa-solid fa-forward"></i>
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ================= PLAYLIST ================= -->
+
+<div class="playlist-card">
+
+<h2>
+
+❤️ Playlist
+
+</h2>
+
+<div id="playlist">
+
+<!-- Songs will appear here -->
+
+</div>
+
+</div>
+
+</section>
+
+<script src="playlist.js"></script>
+<script src="music.js"></script>
+
+</body>
+
+</html>
